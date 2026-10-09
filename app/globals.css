@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* Touch devices have no hover, so hover-only reveals need a fallback. */
+@custom-variant touch (@media (hover: none));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — sourced from Figma "TT Brand Guideline" (Global Tokens).
+   --------------------------------------------------------------------------- */
+@theme {
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #000000; /* page background */
+  --color-fg: #fafafa; /* primary text */
+  --color-muted: #929292; /* Colors/Primary/200 */
+  --color-surface: #121212; /* glass cards, used as surface/60 /40 /30 */
+
+  --container-content: 1280px;
+
+  /* Global Tokens/Headings */
+  --text-h1: 58px;
+  --text-h1--line-height: 62px;
+  --text-h3: 40px;
+  --text-h3--line-height: 48px;
+  --text-h6: 24px;
+  --text-h6--line-height: 36px;
+  --text-h7: 20px;
+  --text-h7--line-height: 30px;
+  --text-h9: 14px;
+  --text-h9--line-height: normal;
+  /* Global Tokens/Body */
+  --text-b1: 18px;
+  --text-b1--line-height: 30px;
+  --text-b2: 16px;
+  --text-b2--line-height: 26px;
+  --text-b3: 14px;
+  --text-b3--line-height: 20px;
+  /* Sizes used in the frame without a named token */
+  --text-display: 60px;
+  --text-display--line-height: 60px;
+  --text-display--letter-spacing: -1.5px;
+  --text-faq: 48px;
+  --text-faq--line-height: 48px;
+  --text-faq--letter-spacing: -1.2px;
+  --text-title: 30px;
+  --text-title--line-height: 36px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-micro: 11px;
+  --text-micro--line-height: 16.5px;
+  --text-wordmark: 160px;
+  --text-wordmark--line-height: 160px;
+  --text-wordmark--letter-spacing: -8px;
+
+  --radius-tile: 16px;
+  --radius-card: 24px;
+  --radius-panel: 32px;
+
+  --shadow-glow: 0 0 40px -5px rgb(255 255 255 / 0.6);
+  --shadow-glow-sm: 0 0 30px -5px rgb(255 255 255 / 0.5);
+  --shadow-float: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+  --shadow-float-sm: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-float-lg: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+
+  --animate-orbit: orbit 40s linear infinite;
+  --animate-rise: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fade 240ms ease-out both;
+
+  @keyframes orbit {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 12px;
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Layout + type roles. Desktop (lg) values are the exact Figma values;
+   smaller breakpoints are derived.
+   --------------------------------------------------------------------------- */
+@utility shell {
+  width: 100%;
+  max-width: calc(var(--container-content) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 40px;
+  @variant md {
+    font-size: 48px;
+    line-height: 52px;
+  }
+  @variant lg {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+  }
+}
+
+/* Section headings use the H-3 token */
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  @variant md {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  @variant lg {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+  }
+}
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.9px;
+  @variant md {
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: -1.2px;
+  }
+  @variant lg {
+    font-size: var(--text-display);
+    line-height: var(--text-display--line-height);
+    letter-spacing: var(--text-display--letter-spacing);
+  }
+}
+
+@utility type-faq {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.8px;
+  @variant md {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1px;
+  }
+  @variant lg {
+    font-size: var(--text-faq);
+    line-height: var(--text-faq--line-height);
+    letter-spacing: var(--text-faq--letter-spacing);
+  }
+}
+
+@utility type-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.7px;
+  @variant lg {
+    font-size: var(--text-title);
+    line-height: var(--text-title--line-height);
+    letter-spacing: -0.9px;
+  }
+}
+
+/* Detail-page roles (measured from the Development page export). */
+@utility type-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 48px;
+  letter-spacing: -0.05em;
+  @variant md {
+    font-size: 60px;
+    line-height: 62px;
+  }
+  @variant lg {
+    font-size: 72px;
+    line-height: 72px;
+  }
+}
+
+@utility type-lead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.027em;
+  @variant md {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  @variant lg {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+@utility type-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.025em;
+  @variant lg {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Surfaces + texture
+   --------------------------------------------------------------------------- */
+/* 1px white/4 lines on a 64px grid */
+@utility grid-lines {
+  background-image:
+    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Glass gradient used by the floating hero cards */
+@utility glass-gradient {
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03));
+}
+
+@utility glass-gradient-soft {
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.02));
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Load-sequence stagger: set --i on the element */
+@utility stagger {
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --gutter: 20px;
+    @variant md {
+      --gutter: 40px;
+    }
+    @variant lg {
+      --gutter: 80px;
+    }
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    @apply bg-ink font-sans text-fg antialiased;
+  }
+
+  ::selection {
+    background-color: rgb(255 255 255 / 0.2);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(255 255 255 / 0.7);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
