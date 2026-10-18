@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import { SmartLink } from "./SmartLink";
 
-// Figma: Component 14 v1 — muted text link that brightens on hover.
+// Figma: Component 14 v1 - muted text link that brightens on hover.
 export function NavLink({ href, className, children, ...props }) {
   return (
     <SmartLink

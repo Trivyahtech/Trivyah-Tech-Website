@@ -4,24 +4,24 @@
 @custom-variant touch (@media (hover: none));
 
 /* ---------------------------------------------------------------------------
-   Design tokens — sourced from Figma "TT Brand Guideline" (Global Tokens).
+   Design tokens - sourced from Figma "TT Brand Guideline" (Global Tokens).
    --------------------------------------------------------------------------- */
 @theme {
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #000000; /* page background */
-  --color-fg: #fafafa; /* primary text */
-  --color-muted: #929292; /* Colors/Primary/200 */
+  --color-fg: #ffffff; /* primary text: brand White */
+  --color-muted: #999999; /* secondary text: brand White 60% tint */
   --color-surface: #121212; /* glass cards, used as surface/60 /40 /30 */
 
   --container-content: 1280px;
 
   /* Global Tokens/Headings */
-  --text-h1: 58px;
-  --text-h1--line-height: 62px;
-  --text-h3: 40px;
-  --text-h3--line-height: 48px;
+  --text-h1: 64px;
+  --text-h1--line-height: 68px;
+  --text-h3: 48px;
+  --text-h3--line-height: 56px;
   --text-h6: 24px;
   --text-h6--line-height: 36px;
   --text-h7: 20px;
@@ -36,31 +36,27 @@
   --text-b3: 14px;
   --text-b3--line-height: 20px;
   /* Sizes used in the frame without a named token */
-  --text-display: 60px;
-  --text-display--line-height: 60px;
-  --text-display--letter-spacing: -1.5px;
+  --text-display: 64px;
+  --text-display--line-height: 68px;
   --text-faq: 48px;
-  --text-faq--line-height: 48px;
-  --text-faq--letter-spacing: -1.2px;
-  --text-title: 30px;
-  --text-title--line-height: 36px;
+  --text-faq--line-height: 56px;
+  --text-title: 36px;
+  --text-title--line-height: 44px;
   --text-caption: 12px;
   --text-caption--line-height: 16px;
   --text-micro: 11px;
   --text-micro--line-height: 16.5px;
   --text-wordmark: 160px;
   --text-wordmark--line-height: 160px;
-  --text-wordmark--letter-spacing: -8px;
 
   --radius-tile: 16px;
   --radius-card: 24px;
   --radius-panel: 32px;
 
-  --shadow-glow: 0 0 40px -5px rgb(255 255 255 / 0.6);
-  --shadow-glow-sm: 0 0 30px -5px rgb(255 255 255 / 0.5);
-  --shadow-float: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
-  --shadow-float-sm: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-  --shadow-float-lg: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+  /* Brand guideline: no heavy shadows. Cards only get a light lift. */
+  --shadow-float: 0 8px 16px -8px rgb(0 0 0 / 0.35);
+  --shadow-float-sm: 0 4px 10px -6px rgb(0 0 0 / 0.3);
+  --shadow-float-lg: 0 12px 24px -12px rgb(0 0 0 / 0.4);
 
   --animate-orbit: orbit 40s linear infinite;
   --animate-rise: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -85,8 +81,8 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Layout + type roles. Desktop (lg) values are the exact Figma values;
-   smaller breakpoints are derived.
+   Layout + type roles. Desktop (lg) sizes follow the brand type scale
+   (64 / 48 / 36 / 24 px); smaller breakpoints step down from it.
    --------------------------------------------------------------------------- */
 @utility shell {
   width: 100%;
@@ -97,12 +93,12 @@
 
 @utility type-h1 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 36px;
-  line-height: 40px;
+  line-height: 42px;
   @variant md {
     font-size: 48px;
-    line-height: 52px;
+    line-height: 54px;
   }
   @variant lg {
     font-size: var(--text-h1);
@@ -114,11 +110,11 @@
 @utility type-h2 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 30px;
+  line-height: 38px;
   @variant md {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: 36px;
+    line-height: 44px;
   }
   @variant lg {
     font-size: var(--text-h3);
@@ -130,35 +126,29 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 36px;
-  line-height: 40px;
-  letter-spacing: -0.9px;
+  line-height: 42px;
   @variant md {
     font-size: 48px;
-    line-height: 50px;
-    letter-spacing: -1.2px;
+    line-height: 54px;
   }
   @variant lg {
     font-size: var(--text-display);
     line-height: var(--text-display--line-height);
-    letter-spacing: var(--text-display--letter-spacing);
   }
 }
 
 @utility type-faq {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 32px;
-  line-height: 36px;
-  letter-spacing: -0.8px;
+  font-size: 30px;
+  line-height: 38px;
   @variant md {
-    font-size: 40px;
+    font-size: 36px;
     line-height: 44px;
-    letter-spacing: -1px;
   }
   @variant lg {
     font-size: var(--text-faq);
     line-height: var(--text-faq--line-height);
-    letter-spacing: var(--text-faq--letter-spacing);
   }
 }
 
@@ -167,11 +157,9 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 32px;
-  letter-spacing: -0.7px;
   @variant lg {
     font-size: var(--text-title);
     line-height: var(--text-title--line-height);
-    letter-spacing: -0.9px;
   }
 }
 
@@ -179,44 +167,41 @@
 @utility type-hero {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 44px;
-  line-height: 48px;
-  letter-spacing: -0.05em;
+  font-size: 40px;
+  line-height: 46px;
   @variant md {
-    font-size: 60px;
-    line-height: 62px;
+    font-size: 48px;
+    line-height: 54px;
   }
   @variant lg {
-    font-size: 72px;
-    line-height: 72px;
+    font-size: 64px;
+    line-height: 68px;
   }
 }
 
 @utility type-lead {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 38px;
-  letter-spacing: -0.027em;
   @variant md {
-    font-size: 40px;
-    line-height: 46px;
+    font-size: 36px;
+    line-height: 44px;
   }
   @variant lg {
     font-size: 48px;
-    line-height: 52px;
+    line-height: 56px;
   }
 }
 
 @utility type-section {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.025em;
+  font-size: 30px;
+  line-height: 38px;
   @variant lg {
     font-size: 36px;
-    line-height: 40px;
+    line-height: 44px;
   }
 }
 

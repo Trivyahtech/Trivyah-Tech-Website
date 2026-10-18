@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 
 const sizes = {
-  md: { tile: "size-12", icon: "size-5" }, // 48px tile, 20px glyph — capability cards
+  md: { tile: "size-12", icon: "size-5" }, // 48px tile, 20px glyph - capability cards
   lg: { tile: "size-[50px] ring-1 ring-white/5 ring-inset", icon: "size-[22px]" }, // AI solution cards
 };
 

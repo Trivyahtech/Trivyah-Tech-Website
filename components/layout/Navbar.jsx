@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { bookCall, navLinks } from "@/lib/content";
+import { contactUs, navLinks } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
@@ -59,9 +59,9 @@ export function Navbar() {
       )}
 
       <div className="shell">
-        {/* Floating bar — Figma: 1280×62, aligned to the content container */}
+        {/* Floating bar - Figma: 1280×62, aligned to the content container */}
         <div className="flex h-[62px] items-center justify-between gap-6 rounded-full border border-white/10 bg-[linear-gradient(to_bottom,rgb(22_22_22/0.92),rgb(13_13_13/0.92))] px-3 backdrop-blur-md md:px-[19px]">
-          <SmartLink href="/" aria-label="Trivyah Tech home" className="rounded-full">
+          <SmartLink href="/" aria-label="Trivyah Tech home" className="flex rounded-full">
             <Logo variant="nav" />
           </SmartLink>
 
@@ -75,8 +75,8 @@ export function Navbar() {
             </ul>
           </nav>
 
-          <Button href={bookCall.href} size="xs" className="max-lg:hidden">
-            {bookCall.label}
+          <Button href={contactUs.href} size="xs" className="max-lg:hidden">
+            {contactUs.label}
           </Button>
 
           <button
@@ -118,8 +118,8 @@ export function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <Button href={bookCall.href} className="mt-2" onClick={close}>
-              {bookCall.label}
+            <Button href={contactUs.href} className="mt-2" onClick={close}>
+              {contactUs.label}
             </Button>
           </nav>
         </div>

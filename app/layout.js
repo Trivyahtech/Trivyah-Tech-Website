@@ -9,12 +9,12 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: "variable", // full 100–900 axis
+  weight: "variable", // full 100-900 axis
   display: "swap",
 });
 
 export const metadata = {
-  title: "Trivyah Tech — Digital product studio",
+  title: "Trivyah Tech - Digital product studio",
   description: site.description,
 };
 

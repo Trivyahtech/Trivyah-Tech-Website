@@ -20,14 +20,14 @@ export function Footer() {
         <div className="flex flex-col gap-16 py-16 lg:px-6 lg:py-20">
           <p
             aria-hidden="true"
-            className="font-display text-[clamp(64px,11vw,160px)] leading-none font-bold tracking-[-0.05em] text-fg/10 select-none lg:text-wordmark"
+            className="font-display text-[clamp(64px,11vw,160px)] leading-none font-bold text-fg/10 select-none lg:text-wordmark"
           >
             {footer.wordmark}
           </p>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-12">
             <div className="col-span-2 flex flex-col gap-[18.75px] lg:col-span-1">
-              <SmartLink href="/" aria-label="Trivyah Tech home" className="self-start rounded-full">
+              <SmartLink href="/" aria-label="Trivyah Tech home" className="flex self-start rounded-full">
                 <Logo />
               </SmartLink>
               <p className="max-w-[320px] text-b3 leading-[22.75px] text-muted">{footer.blurb}</p>
@@ -74,7 +74,14 @@ export function Footer() {
               <ul className="flex gap-3 pt-1">
                 {footer.socials.map((social) => (
                   <li key={social.label} className="flex">
-                    <IconButton href={social.href} size={40} tone="quiet" aria-label={`Trivyah Tech on ${social.label}`}>
+                    <IconButton
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size={40}
+                      tone="quiet"
+                      aria-label={`Trivyah Tech on ${social.label} (opens in a new tab)`}
+                    >
                       <Icon name={social.icon} size={16} />
                     </IconButton>
                   </li>

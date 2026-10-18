@@ -38,22 +38,26 @@ function ArrowCircle() {
   );
 }
 
+const externalProps = (href) =>
+  href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
 function TitleBlock({ title, industry }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <h3 className="font-display text-xl/7 font-semibold tracking-[-0.6px] text-fg">{title}</h3>
+      <h3 className="font-display text-xl/7 font-semibold text-fg">{title}</h3>
       <p className="text-caption text-muted">{industry}</p>
     </div>
   );
 }
 
-// Figma: Component 9 — tall featured card spanning two rows.
+// Figma: Component 9 - tall featured card spanning two rows.
 export function FeaturedProjectCard({ number, category, title, industry, description, href, className }) {
   return (
-    <a href={href} className={cn(cardShell, "block min-h-[420px]", className)}>
+    <a href={href} {...externalProps(href)} className={cn(cardShell, "block min-h-[420px]", className)}>
       <ProjectMedia number={number} category={category} angle={121.62} />
-      <div className={cn("absolute inset-x-0 bottom-0 flex flex-col gap-4 p-5", reveal)}>
-        <p className="max-w-[44ch] text-b3 text-muted">{description}</p>
+      {/* Title + arrow stay visible; only the description reveals on hover (like the smaller cards). */}
+      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 bg-linear-to-t from-ink/80 to-transparent p-5">
+        <p className={cn("max-w-[44ch] text-b3 text-muted", reveal)}>{description}</p>
         <div className="flex items-center justify-between gap-4">
           <TitleBlock title={title} industry={industry} />
           <ArrowCircle />
@@ -63,10 +67,10 @@ export function FeaturedProjectCard({ number, category, title, industry, descrip
   );
 }
 
-// Figma: Component 10 — media area + title footer.
+// Figma: Component 10 - media area + title footer.
 export function ProjectCard({ number, category, title, industry, description, href }) {
   return (
-    <a href={href} className={cn(cardShell, "flex flex-col")}>
+    <a href={href} {...externalProps(href)} className={cn(cardShell, "flex flex-col")}>
       <div className="relative h-56 shrink-0">
         <ProjectMedia number={number} category={category} angle={150.46} />
         <p className={cn("absolute inset-x-0 bottom-0 p-5 text-b3 text-muted", reveal)}>{description}</p>

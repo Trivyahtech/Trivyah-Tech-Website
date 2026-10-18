@@ -14,7 +14,7 @@ export function StepCard({ number, icon: IconComponent, title, description, arro
         </span>
         {arrow && <ArrowRight aria-hidden="true" className="size-4 text-white/20" />}
       </div>
-      <Heading className={`${IconComponent ? "mt-2.5" : "mt-4"} flex items-center gap-2 font-display text-lg/6 font-semibold tracking-[-0.025em] text-fg`}>
+      <Heading className={`${IconComponent ? "mt-2.5" : "mt-4"} flex items-center gap-2 font-display text-lg/6 font-semibold text-fg`}>
         {IconComponent && <IconComponent aria-hidden="true" className="size-[18px] shrink-0" />}
         <span>
           <span className="sr-only">Step {Number(number)}: </span>

@@ -8,7 +8,7 @@ export function CallToAction({ content = homeCta, className }) {
   const { titleLines, body, primary, secondary } = content;
 
   return (
-    <section id="contact" aria-labelledby="cta-title" className={cn("shell pb-20", className)}>
+    <section aria-labelledby="cta-title" className={cn("shell pb-20", className)}>
       <div className="relative overflow-hidden rounded-panel border border-white/10 bg-surface/40 px-6 py-16 backdrop-blur-md md:px-8 md:py-24 lg:mx-6">
         <div
           aria-hidden="true"
@@ -23,9 +23,11 @@ export function CallToAction({ content = homeCta, className }) {
             <Button href={primary.href} font="body" icon="arrow-right">
               {primary.label}
             </Button>
-            <Button href={secondary.href} variant="outline">
-              {secondary.label}
-            </Button>
+            {secondary && (
+              <Button href={secondary.href} variant="outline">
+                {secondary.label}
+              </Button>
+            )}
           </div>
         </div>
       </div>

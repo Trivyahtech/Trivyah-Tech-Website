@@ -2,16 +2,16 @@ import { cn } from "@/lib/cn";
 import { SmartLink } from "./SmartLink";
 import { Icon } from "./Icon";
 
-// Figma: Component 2 / 11 (primary + arrow), Component 5 v1–v2 (primary small),
-// Component 3 v1–v2 (outline). `xs` is the navbar "Book a Call" pill;
+// Figma: Component 2 / 11 (primary + arrow), Component 5 v1-v2 (primary small),
+// Component 3 v1-v2 (outline). `xs` is the navbar "Contact Us" pill;
 // `lg` is the 50px detail-page hero button.
 const variants = {
   primary: {
     base: "bg-white text-black",
-    lg: "gap-2 px-7 py-[15px] hover:gap-3 hover:pr-6 hover:shadow-glow",
-    md: "gap-2 px-7 py-3.5 hover:gap-3 hover:pr-6 hover:shadow-glow",
-    sm: "gap-2 px-6 py-3 hover:gap-2.5 hover:pr-[22px] hover:shadow-glow-sm",
-    xs: "gap-2 px-5 py-2 hover:shadow-glow-sm",
+    lg: "gap-2 px-7 py-[15px] hover:gap-3 hover:pr-6 hover:bg-white/90",
+    md: "gap-2 px-7 py-3.5 hover:gap-3 hover:pr-6 hover:bg-white/90",
+    sm: "gap-2 px-6 py-3 hover:gap-2.5 hover:pr-[22px] hover:bg-white/90",
+    xs: "gap-2 px-5 py-2 hover:bg-white/90",
   },
   outline: {
     base: "border border-white/15 text-fg hover:border-white/40 hover:bg-white/5",

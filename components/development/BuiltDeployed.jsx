@@ -29,7 +29,7 @@ function ShowcaseCard({ image, imageAlt, badges, category, domain, title, descri
           <p className="tracking-[0.1em] text-muted uppercase">{category}</p>
           {domain && <p className="text-muted">{domain}</p>}
         </div>
-        <h3 className="mt-2 font-display text-2xl/7 font-semibold tracking-[-0.02em] text-fg">{title}</h3>
+        <h3 className="mt-2 font-display text-2xl/7 font-semibold text-fg">{title}</h3>
         <p className="mt-2 text-[15px]/[23px] text-muted">{description}</p>
 
         <SmartLink

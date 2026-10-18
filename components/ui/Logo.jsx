@@ -1,29 +1,25 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
-const variants = {
-  // Footer (Figma frame): one-tone wordmark at 20px
-  footer: { mark: "size-9 text-lg/7", word: "text-h7 leading-7", tech: "text-fg", gap: "gap-2.5" },
-  // Navbar: "Tech" in muted grey, 17px
-  nav: { mark: "size-[34px] text-base", word: "text-[17px]/6", tech: "text-muted", gap: "gap-2" },
-};
-
-/** "T" mark + wordmark. */
+// Vector logo from the Figma "TT Brand Guideline" (white on black).
+// nav: logomark + logotype side by side. footer: the official stacked lockup with ™.
 export function Logo({ variant = "footer", className }) {
-  const v = variants[variant];
+  if (variant === "nav") {
+    return (
+      <span className={cn("inline-flex items-center gap-2.5", className)}>
+        <Image src="/brand/logo-mark.svg" alt="" width={90} height={97} priority className="h-9 w-auto" />
+        <Image src="/brand/logo-logotype.svg" alt="Trivyah Tech" width={122} height={38} priority className="h-7 w-auto" />
+      </span>
+    );
+  }
+
   return (
-    <span className={cn("inline-flex items-center", v.gap, className)}>
-      <span
-        aria-hidden="true"
-        className={cn(
-          "flex items-center justify-center rounded-full bg-white font-display font-bold text-black",
-          v.mark,
-        )}
-      >
-        T
-      </span>
-      <span className={cn("font-display font-semibold text-fg", v.word)}>
-        Trivyah <span className={v.tech}>Tech</span>
-      </span>
-    </span>
+    <Image
+      src="/brand/logo-lockup.svg"
+      alt="Trivyah Tech"
+      width={128}
+      height={150}
+      className={cn("h-24 w-auto", className)}
+    />
   );
 }

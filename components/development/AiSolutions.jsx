@@ -9,7 +9,7 @@ function SolutionCard({ icon, title, description, points }) {
   return (
     <li className="flex flex-col rounded-card border border-white/10 bg-surface/60 px-[27px] pt-[27px] pb-6">
       <IconTile icon={icon} size="lg" />
-      <h3 className="mt-5 font-display text-h7 leading-7 font-semibold tracking-[-0.03em] text-fg">{title}</h3>
+      <h3 className="mt-5 font-display text-h7 leading-7 font-semibold text-fg">{title}</h3>
       <p className="mt-2 text-[15px]/[23px] text-muted">{description}</p>
       <ul className="mt-4 flex flex-col">
         {points.map((point) => (
@@ -58,7 +58,7 @@ export function AiSolutions() {
         ))}
       </ul>
 
-      <h3 className="mt-16 font-display text-2xl/8 font-bold tracking-[-0.025em] text-fg">{ai.stepsTitle}</h3>
+      <h3 className="mt-16 font-display text-2xl/8 font-bold text-fg">{ai.stepsTitle}</h3>
       <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {ai.steps.map((step) => (
           <StepCard key={step.number} {...step} headingLevel="h4" />
