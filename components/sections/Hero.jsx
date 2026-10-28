@@ -31,9 +31,11 @@ export function Hero() {
             <Button href={hero.primaryCta.href} icon="arrow-right">
               {hero.primaryCta.label}
             </Button>
-            <Button href={hero.secondaryCta.href} variant="outline">
-              {hero.secondaryCta.label}
-            </Button>
+            {hero.secondaryCta && (
+              <Button href={hero.secondaryCta.href} variant="outline">
+                {hero.secondaryCta.label}
+              </Button>
+            )}
           </div>
 
           <dl className="flex animate-rise stagger flex-wrap gap-x-10 gap-y-4 pt-7" style={{ "--i": lineCount + 3 }}>
