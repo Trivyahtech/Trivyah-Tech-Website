@@ -1,4 +1,3 @@
-import { CallToAction } from "@/components/sections/CallToAction";
 import { ContactSection } from "@/components/sections/ContactSection";
 // Hidden until the client video review is ready (in editing).
 // import { ClientStories } from "@/components/sections/ClientStories";
@@ -19,7 +18,6 @@ export default function Home() {
       <SelectedWork />
       {/* <ClientStories /> */}
       <Faq {...faq} />
-      <CallToAction />
       <ContactSection />
     </>
   );
